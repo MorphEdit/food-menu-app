@@ -23,9 +23,19 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/cart" className="nav-link cart-link">
+            <Link to="/cart" className="nav-link">
               ตะกร้า
               {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/qrcode" className="nav-link">
+              QR Code
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/admin" className="nav-link admin-link">
+              จัดการเมนู
             </Link>
           </li>
         </ul>

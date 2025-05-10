@@ -76,3 +76,13 @@
   font-size: 0.8rem;
   font-weight: bold;
 }
+
+/* เพิ่มสไตล์สำหรับลิงก์ admin */
+.admin-link {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+}
+
+.admin-link:hover {
+  background-color: #e0e0e0;
+}

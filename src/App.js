@@ -4,6 +4,8 @@ import { CartProvider } from './contexts/CartContext';
 import Navbar from './components/Navbar';
 import MenuPage from './components/MenuPage';
 import Cart from './components/Cart';
+import QRCodePage from './components/QRCodePage';
+import AdminPage from './components/AdminPage';
 import './App.css';
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
           <Routes>
             <Route path="/" element={<MenuPage />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/qrcode" element={<QRCodePage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </div>
       </Router>

@@ -12,21 +12,27 @@ function MenuPage() {
     const { cart, addToCart } = useCart();
     
     useEffect(() => {
-        // ข้อมูลตัวอย่างแทนการเรียก API
+    // โหลดข้อมูลจาก localStorage
+    const savedItems = localStorage.getItem('menuItems');
+    if (savedItems) {
+        setMenuItems(JSON.parse(savedItems));
+        setLoading(false);
+    } else {
+        // ข้อมูลตัวอย่าง
         const sampleMenuItems = [
-            { _id: 1, name: 'ข้าวผัดกระเพรา', description: 'ข้าวผัดกระเพราหมูสับ ไข่ดาว', price: 60, category: 'อาหารจานเดียว' },
-            { _id: 2, name: 'ผัดไทย', description: 'ผัดไทยกุ้งสด ใส่ไข่', price: 80, category: 'อาหารจานเดียว' },
-            { _id: 3, name: 'ต้มยำกุ้ง', description: 'ต้มยำกุ้งน้ำข้น', price: 120, category: 'อาหารทานเล่น' },
-            { _id: 4, name: 'ส้มตำไทย', description: 'ส้มตำไทยรสจัด', price: 60, category: 'อาหารทานเล่น' },
-            { _id: 5, name: 'แกงเขียวหวาน', description: 'แกงเขียวหวานไก่', price: 80, category: 'แกงและซุป' },
-            { _id: 6, name: 'ข้าวมันไก่', description: 'ข้าวมันไก่ต้ม พร้อมน้ำจิ้ม', price: 70, category: 'อาหารจานเดียว' },
+        { _id: 1, name: 'ข้าวผัดกระเพรา', description: 'ข้าวผัดกระเพราหมูสับ ไข่ดาว', price: 60, category: 'อาหารจานเดียว' },
+        { _id: 2, name: 'ผัดไทย', description: 'ผัดไทยกุ้งสด ใส่ไข่', price: 80, category: 'อาหารจานเดียว' },
+        { _id: 3, name: 'ต้มยำกุ้ง', description: 'ต้มยำกุ้งน้ำข้น', price: 120, category: 'อาหารทานเล่น' },
+        { _id: 4, name: 'ส้มตำไทย', description: 'ส้มตำไทยรสจัด', price: 60, category: 'อาหารทานเล่น' },
+        { _id: 5, name: 'แกงเขียวหวาน', description: 'แกงเขียวหวานไก่', price: 80, category: 'แกงและซุป' },
+        { _id: 6, name: 'ข้าวมันไก่', description: 'ข้าวมันไก่ต้ม พร้อมน้ำจิ้ม', price: 70, category: 'อาหารจานเดียว' },
         ];
-        
-        // จำลองการโหลดข้อมูล
         setTimeout(() => {
-            setMenuItems(sampleMenuItems);
-            setLoading(false);
-        }, 1000); // จำลองการโหลด 1 วินาที
+        setMenuItems(sampleMenuItems);
+        localStorage.setItem('menuItems', JSON.stringify(sampleMenuItems));
+        setLoading(false);
+        }, 1000);
+    }
     }, []);
     
     // แยกเมนูตามหมวดหมู่
