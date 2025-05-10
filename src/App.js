@@ -14,7 +14,7 @@ import './App.css';
 function App() {
   return (
     <CartProvider>
-      <Router>
+      <Router basename="/build">
         <div className="App">
           <Navbar />
           <Routes>
