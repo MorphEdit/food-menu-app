@@ -1,0 +1,242 @@
+.cart-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.cart-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.cart-page h1:after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: #d32f2f;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.empty-cart-message {
+  text-align: center;
+  margin-top: 40px;
+  padding: 40px 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.empty-cart-message p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.cart-items {
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+}
+
+.item-info {
+  flex: 2;
+}
+
+.item-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.item-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.item-price {
+  color: #666;
+  margin: 0;
+  font-weight: bold;
+}
+
+.item-quantity {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  font-size: 1.2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 8px;
+  transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.quantity-value {
+  font-weight: bold;
+  font-size: 1.2rem;
+  min-width: 30px;
+  text-align: center;
+}
+
+.item-total {
+  flex: 1;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.total-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.total-value {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+.remove-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  font-family: 'Kanit', sans-serif;
+}
+
+.remove-btn:hover {
+  background-color: #d32f2f;
+}
+
+.cart-summary {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+}
+
+.summary-row:last-of-type {
+  border-bottom: 2px solid #d32f2f;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.summary-value {
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+.checkout-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.2s;
+  font-family: 'Kanit', sans-serif;
+}
+
+.checkout-button:hover {
+  background-color: #3d8b40;
+}
+
+.continue-shopping {
+  display: block;
+  text-align: center;
+  color: #333;
+  text-decoration: none;
+  padding: 12px;
+  margin-top: 10px;
+  transition: color 0.2s;
+}
+
+.continue-shopping:hover {
+  color: #d32f2f;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .item-info, .item-quantity, .item-total {
+    flex: 1;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .item-quantity {
+    justify-content: flex-start;
+  }
+  
+  .item-total {
+    align-items: flex-start;
+  }
+  
+  .remove-btn {
+    align-self: flex-start;
+  }
+}

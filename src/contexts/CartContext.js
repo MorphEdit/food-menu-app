@@ -42,8 +42,24 @@ export function CartProvider({ children }) {
     }, 2000);
   };
 
+  const removeFromCart = (itemId) => {
+    setCart(cart.filter(item => item._id !== itemId));
+  };
+
+  const updateQuantity = (itemId, newQuantity) => {
+    if (newQuantity <= 0) {
+      // ถ้าจำนวนน้อยกว่าหรือเท่ากับ 0 ให้ลบรายการออกจากตะกร้า
+      removeFromCart(itemId);
+    } else {
+      // อัพเดทจำนวน
+      setCart(cart.map(item => 
+        item._id === itemId ? { ...item, quantity: newQuantity } : item
+      ));
+    }
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
       {children}
     </CartContext.Provider>
   );

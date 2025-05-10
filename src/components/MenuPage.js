@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
 import MenuItem from './MenuItem';
 import Loading from './Loading';
@@ -7,6 +8,7 @@ import '../styles/MenuPage.css';
 function MenuPage() {
     const [menuItems, setMenuItems] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
     const { cart, addToCart } = useCart();
     
     useEffect(() => {
@@ -39,34 +41,72 @@ function MenuPage() {
         return categories;
     };
     
+    // กรองรายการอาหารตามคำค้นหา
+    const filteredItems = menuItems.filter(item => 
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    
     if (loading) return <Loading />;
     
     const categories = getCategories();
+    
+    // คำนวณจำนวนรายการทั้งหมดในตะกร้า
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
     return (
         <div className="menu-page">
             <div className="header">
                 <h1>เมนูอาหาร</h1>
-                <div className="cart-icon">
-                    🛒
-                    {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
+                <div className="search-container">
+                    <input 
+                        type="text" 
+                        placeholder="ค้นหาเมนูอาหาร..." 
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="search-input"
+                    />
                 </div>
+                <Link to="/cart" className="cart-icon">
+                    🛒
+                    {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
+                </Link>
             </div>
             
-            {Object.keys(categories).map(category => (
-                <div key={category} className="menu-category">
-                    <h2 className="menu-category-title">{category}</h2>
-                    <div className="menu-grid">
-                        {categories[category].map(item => (
-                            <MenuItem
-                                key={item._id}
-                                item={item}
-                                onAddToCart={() => addToCart(item)}
-                            />
-                        ))}
-                    </div>
+            {searchTerm ? (
+                <div className="search-results">
+                    <h2>ผลการค้นหา: {searchTerm}</h2>
+                    {filteredItems.length === 0 ? (
+                        <p className="no-results">ไม่พบเมนูที่ค้นหา</p>
+                    ) : (
+                        <div className="menu-grid">
+                            {filteredItems.map(item => (
+                                <MenuItem
+                                    key={item._id}
+                                    item={item}
+                                    onAddToCart={() => addToCart(item)}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
-            ))}
+            ) : (
+                Object.keys(categories).map(category => (
+                    <div key={category} className="menu-category">
+                        <h2 className="menu-category-title">{category}</h2>
+                        <div className="menu-grid">
+                            {categories[category].map(item => (
+                                <MenuItem
+                                    key={item._id}
+                                    item={item}
+                                    onAddToCart={() => addToCart(item)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                ))
+            )}
         </div>
     );
 }
