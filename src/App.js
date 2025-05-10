@@ -4,8 +4,11 @@ import { CartProvider } from './contexts/CartContext';
 import Navbar from './components/Navbar';
 import MenuPage from './components/MenuPage';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
+import OrderStatus from './components/OrderStatus';
 import QRCodePage from './components/QRCodePage';
-import AdminPage from './components/AdminPage'; // เพิ่มบรรทัดนี้
+import AdminPage from './components/AdminPage';
+import RestaurantDashboard from './components/RestaurantDashboard';
 import './App.css';
 
 function App() {
@@ -17,8 +20,11 @@ function App() {
           <Routes>
             <Route path="/" element={<MenuPage />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order-status/:orderId" element={<OrderStatus />} />
             <Route path="/qrcode" element={<QRCodePage />} />
-            <Route path="/admin" element={<AdminPage />} /> {/* เพิ่มบรรทัดนี้ */}
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/dashboard" element={<RestaurantDashboard />} />
           </Routes>
         </div>
       </Router>

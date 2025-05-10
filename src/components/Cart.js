@@ -76,7 +76,7 @@ function Cart() {
           <span className="summary-value">{total} บาท</span>
         </div>
         
-        <button className="checkout-button">ยืนยันการสั่งอาหาร</button>
+        <Link to="/checkout" className="checkout-button">ดำเนินการสั่งซื้อ</Link>
         
         <Link to="/" className="continue-shopping">
           เลือกเมนูเพิ่มเติม

@@ -38,6 +38,11 @@ function Navbar() {
               จัดการเมนู
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/dashboard" className="nav-link dashboard-link">
+              แดชบอร์ด
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
