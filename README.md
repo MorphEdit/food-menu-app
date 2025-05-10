@@ -6,13 +6,6 @@ React.js
 CSS
 Context API (สำหรับระบบตะกร้าสินค้า)
 
-วิธีการใช้งาน
-
-Clone repo นี้
-รัน npm install
-รัน npm start
-เปิดเบราว์เซอร์ที่ http://localhost:3000
-
 สิ่งที่ได้เรียนรู้
 
 การใช้ React Components
