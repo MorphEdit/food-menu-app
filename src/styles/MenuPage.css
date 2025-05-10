@@ -92,11 +92,44 @@ button:hover {
   margin-bottom: 20px;
 }
 
+/* เพิ่มส่วนนี้สำหรับการค้นหา */
+.search-container {
+  flex-grow: 1;
+  max-width: 400px;
+  margin: 0 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: 'Kanit', sans-serif;
+}
+
+.search-results h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #666;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+/* จบส่วนการค้นหา */
+
 .cart-icon {
   font-size: 1.8rem;
   color: #333;
   position: relative;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .cart-count {
@@ -123,6 +156,22 @@ button:hover {
   
   h1 {
     font-size: 2rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .search-container {
+    margin: 15px 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .cart-icon {
+    align-self: flex-end;
+    margin-top: -40px;
   }
 }
 
