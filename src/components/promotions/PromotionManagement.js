@@ -150,6 +150,29 @@ function PromotionManagement() {
     setPromotions(updatedPromotions);
   };
   
+  // เพิ่มฟังก์ชันที่ขาดหายไป
+  const handleStartEdit = (promotion) => {
+    setEditingId(promotion.id);
+    setEditPromotion({ ...promotion });
+  };
+
+  const handleCancelEdit = () => {
+    setEditingId(null);
+  };
+
+  const handleSaveEdit = () => {
+    const updatedPromotions = promotions.map(promo => {
+      if (promo.id === editingId) {
+        return { ...editPromotion };
+      }
+      return promo;
+    });
+    
+    localStorage.setItem('promotions', JSON.stringify(updatedPromotions));
+    setPromotions(updatedPromotions);
+    setEditingId(null);
+  };
+  
   // ตรวจสอบว่าโปรโมชันหมดอายุหรือไม่
   const isExpired = (endDate) => {
     const today = new Date();
