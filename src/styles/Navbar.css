@@ -30,6 +30,18 @@
   align-items: center;
 }
 
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.menu-icon-text {
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -39,7 +51,7 @@
 }
 
 .nav-item {
-  margin-left: 25px;
+  margin-left: 20px;
 }
 
 .nav-link {
@@ -49,16 +61,11 @@
   padding: 8px 16px;
   border-radius: 50px;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .nav-link:hover {
   background-color: #f8f8f8;
-}
-
-.cart-link {
-  position: relative;
-  display: flex;
-  align-items: center;
 }
 
 .cart-badge {
@@ -77,7 +84,126 @@
   font-weight: bold;
 }
 
-/* เพิ่มสไตล์สำหรับ admin-link */
+.user-section {
+  display: flex;
+  align-items: center;
+}
+
+.user-menu-container {
+  position: relative;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: background-color 0.2s;
+}
+
+.user-profile:hover {
+  background-color: #f8f8f8;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #2196F3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.user-info {
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+}
+
+.user-full-name {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-role {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.user-menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-menu-items li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.user-menu-items li:last-child {
+  border-bottom: none;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 8px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Kanit', sans-serif;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.login-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background-color: #3d8b40;
+}
+
 .admin-link {
   background-color: #f8f8f8;
   border: 1px solid #ddd;
@@ -87,50 +213,6 @@
   background-color: #e0e0e0;
 }
 
-@media (max-width: 768px) {
-  .nav-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 70px;
-    left: -100%;
-    opacity: 1;
-    transition: all 0.5s ease;
-  }
-
-  .nav-menu.active {
-    background: #fff;
-    left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-item {
-    margin: 0;
-    width: 100%;
-    border-bottom: 1px solid #eee;
-  }
-
-  .nav-link {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-    border-radius: 0;
-  }
-
-  .navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
-  }
-}
-
-/* เพิ่มสไตล์สำหรับ dashboard-link */
 .dashboard-link {
   background-color: #673ab7;
   color: white !important;
@@ -139,4 +221,85 @@
 
 .dashboard-link:hover {
   background-color: #5e35b1;
+}
+
+@media screen and (max-width: 960px) {
+  .navbar-container {
+    justify-content: space-between;
+  }
+  
+  .menu-icon {
+    display: flex;
+    align-items: center;
+    order: 3;
+  }
+  
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background-color: white;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+  
+  .nav-item {
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    border-radius: 0;
+  }
+  
+  .cart-badge {
+    top: 15px;
+    right: 20px;
+  }
+  
+  .user-section {
+    order: 2;
+    margin-right: 20px;
+  }
+  
+  .user-dropdown {
+    right: -20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+  
+  .user-name {
+    display: none;
+  }
+  
+  .user-profile {
+    padding: 8px;
+  }
+  
+  .user-avatar {
+    margin-right: 0;
+  }
 }

@@ -1,0 +1,368 @@
+.promotion-management-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.promotion-management-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #d32f2f;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.promotion-management-page h1:after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: #d32f2f;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.promotions-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.promotion-form-wrapper {
+  flex: 1;
+  max-width: 400px;
+}
+
+.promotion-form {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.promotion-form h2 {
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 1.3rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-checkbox input {
+  margin-right: 10px;
+}
+
+.promotion-submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'Kanit', sans-serif;
+}
+
+.promotion-submit-btn:hover {
+  background-color: #3d8b40;
+}
+
+.promotions-list {
+  flex: 2;
+}
+
+.promotions-list h2 {
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 1.3rem;
+}
+
+.no-promotions {
+  background-color: #fff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.no-promotions p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.promotion-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.promotion-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.promotion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.promotion-card.inactive {
+  opacity: 0.7;
+  border: 2px solid #9e9e9e;
+}
+
+.promotion-card.expired {
+  opacity: 0.7;
+  border: 2px solid #f44336;
+}
+
+.promotion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+}
+
+.promotion-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.promotion-status {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-active {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-inactive {
+  background-color: #f5f5f5;
+  color: #616161;
+}
+
+.status-expired {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.promotion-details {
+  padding: 15px;
+}
+
+.promotion-description {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.promotion-info {
+  margin-bottom: 15px;
+}
+
+.promotion-info p {
+  margin: 5px 0;
+}
+
+.promotion-code {
+  background-color: #f5f5f5;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.promotion-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn, .delete-btn, .activate-btn, .deactivate-btn, .save-btn, .cancel-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Kanit', sans-serif;
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.edit-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #F44336;
+  color: white;
+}
+
+.activate-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.deactivate-btn {
+  background-color: #FF9800;
+  color: white;
+}
+
+.save-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #9e9e9e;
+  color: white;
+}
+
+.edit-promotion-form {
+  padding: 15px;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.promotion-management-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.2s;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.back-link:hover {
+  background-color: #e0e0e0;
+}
+
+.auth-required {
+  background-color: #fff;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.auth-required h2 {
+  color: #d32f2f;
+  margin-bottom: 15px;
+}
+
+.auth-required p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background-color: #3d8b40;
+}
+
+@media (max-width: 992px) {
+  .promotions-container {
+    flex-direction: column;
+  }
+  
+  .promotion-form-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .promotion-cards {
+    grid-template-columns: 1fr;
+  }
+}
