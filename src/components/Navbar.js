@@ -34,7 +34,9 @@ function Navbar() {
         </Link>
         
         <div className="menu-icon" onClick={toggleMobileMenu}>
-          <i className={showMobileMenu ? 'fas fa-times' : 'fas fa-bars'}></i>
+          <svg className="menu-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
           <span className="menu-icon-text">{showMobileMenu ? 'ปิด' : 'เมนู'}</span>
         </div>
         

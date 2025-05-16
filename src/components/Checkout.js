@@ -22,7 +22,16 @@ function Checkout() {
   }, []);
   
   // คำนวณยอดรวม
-  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  
+  // สมมติว่ามีค่าส่ง
+  const delivery = 40;
+  
+  // สมมติว่ามีส่วนลด
+  const discount = cart.length >= 3 ? 30 : 0;
+  
+  // ยอดสุทธิ
+  const total = subtotal + delivery - discount;
   
   // ถ้าตะกร้าว่าง ให้กลับไปหน้าเมนู
   useEffect(() => {
@@ -52,6 +61,9 @@ function Checkout() {
       tableNumber,
       customerName,
       items: cart,
+      subtotal,
+      delivery,
+      discount,
       total,
       note,
       status: 'pending',
@@ -84,21 +96,46 @@ function Checkout() {
         <div className="order-summary">
           <h2>สรุปรายการอาหาร</h2>
           
-          {cart.map(item => (
-            <div key={item._id} className="checkout-item">
-              <div className="item-info">
-                <h3>{item.name}</h3>
-                <p>{item.price} บาท x {item.quantity}</p>
+          <div className="checkout-items">
+            {cart.map(item => (
+              <div key={item._id} className="checkout-item">
+                <div className="checkout-item-image">
+                  <img src={item.imageUrl || "https://via.placeholder.com/60"} alt={item.name} />
+                </div>
+                <div className="checkout-item-details">
+                  <h3>{item.name}</h3>
+                  <div className="checkout-item-price">
+                    <span>{item.price} บาท</span>
+                    <span>×</span>
+                    <span>{item.quantity}</span>
+                  </div>
+                </div>
+                <div className="checkout-item-total">
+                  {item.price * item.quantity} บาท
+                </div>
               </div>
-              <div className="item-total">
-                {item.price * item.quantity} บาท
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
           
-          <div className="order-total">
-            <span>รวมทั้งสิ้น</span>
-            <span className="total-price">{total} บาท</span>
+          <div className="checkout-totals">
+            <div className="checkout-totals-row">
+              <span>รวมค่าอาหาร</span>
+              <span>{subtotal} บาท</span>
+            </div>
+            <div className="checkout-totals-row">
+              <span>ค่าจัดส่ง</span>
+              <span>{delivery} บาท</span>
+            </div>
+            {discount > 0 && (
+              <div className="checkout-totals-row discount">
+                <span>ส่วนลด</span>
+                <span>- {discount} บาท</span>
+              </div>
+            )}
+            <div className="checkout-totals-row total">
+              <span>ยอดชำระทั้งสิ้น</span>
+              <span>{total} บาท</span>
+            </div>
           </div>
         </div>
         
@@ -139,6 +176,47 @@ function Checkout() {
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="เช่น ไม่ใส่ผักชี, ไม่เผ็ด"
               />
+            </div>
+            
+            <div className="payment-options">
+              <h3>วิธีการชำระเงิน</h3>
+              <div className="payment-method">
+                <input 
+                  type="radio" 
+                  id="cash" 
+                  name="payment" 
+                  value="cash" 
+                  defaultChecked 
+                />
+                <label htmlFor="cash">
+                  <span className="radio-icon"></span>
+                  <span className="method-name">ชำระเงินปลายทาง</span>
+                </label>
+              </div>
+              <div className="payment-method">
+                <input 
+                  type="radio" 
+                  id="prompt-pay" 
+                  name="payment" 
+                  value="prompt-pay" 
+                />
+                <label htmlFor="prompt-pay">
+                  <span className="radio-icon"></span>
+                  <span className="method-name">พร้อมเพย์</span>
+                </label>
+              </div>
+              <div className="payment-method">
+                <input 
+                  type="radio" 
+                  id="credit-card" 
+                  name="payment" 
+                  value="credit-card" 
+                />
+                <label htmlFor="credit-card">
+                  <span className="radio-icon"></span>
+                  <span className="method-name">บัตรเครดิต/เดบิต</span>
+                </label>
+              </div>
             </div>
             
             <button 

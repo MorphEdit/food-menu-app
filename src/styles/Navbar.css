@@ -21,7 +21,7 @@
 }
 
 .navbar-logo {
-  color: #d32f2f;
+  color: #F97316;
   cursor: pointer;
   text-decoration: none;
   font-size: 1.8rem;
@@ -40,6 +40,11 @@
 .menu-icon-text {
   font-size: 0.8rem;
   margin-left: 5px;
+}
+
+.menu-svg {
+  width: 24px;
+  height: 24px;
 }
 
 .nav-menu {
@@ -70,9 +75,9 @@
 
 .cart-badge {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: #d32f2f;
+  top: -8px;
+  right: -8px;
+  background-color: #F97316;
   color: white;
   border-radius: 50%;
   width: 20px;
@@ -110,7 +115,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #2196F3;
+  background-color: #F97316;
   color: white;
   display: flex;
   align-items: center;
@@ -192,7 +197,7 @@
 
 .login-button {
   padding: 8px 16px;
-  background-color: #4CAF50;
+  background-color: #F97316;
   color: white;
   text-decoration: none;
   border-radius: 50px;
@@ -201,7 +206,7 @@
 }
 
 .login-button:hover {
-  background-color: #3d8b40;
+  background-color: #EA580C;
 }
 
 .admin-link {

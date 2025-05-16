@@ -14,6 +14,9 @@ function Cart() {
       <div className="cart-page empty-cart">
         <h1>ตะกร้าสินค้า</h1>
         <div className="empty-cart-message">
+          <svg className="empty-cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
           <p>ไม่มีรายการอาหารในตะกร้า</p>
           <Link to="/" className="continue-shopping">
             กลับไปเลือกเมนูอาหาร
@@ -30,6 +33,10 @@ function Cart() {
       <div className="cart-items">
         {cart.map(item => (
           <div key={item._id} className="cart-item">
+            <div className="cart-item-image">
+              <img src={item.imageUrl || "https://via.placeholder.com/100"} alt={item.name} />
+            </div>
+            
             <div className="item-info">
               <h3>{item.name}</h3>
               <p className="item-description">{item.description}</p>
